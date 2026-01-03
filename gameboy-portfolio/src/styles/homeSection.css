@@ -1,0 +1,88 @@
+:root {
+  --gb-bg: #f2fff2;
+  --gb-panel: #add9bc;
+  --gb-accent: #5b8c7c;
+  --gb-ink: #0d1a1a;
+}
+
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', monospace;
+  background: var(--gb-panel);
+  color: var(--gb-ink);
+}
+
+/* Page wrapper */
+.homePage {
+  padding: 2rem;
+}
+
+/* Page title */
+.title {
+  font-size: 14px;
+  margin-bottom: 2rem;
+  padding-left: 20px;
+  text-shadow: 1px 1px var(--gb-ink); /* pixel-ish effect */
+}
+
+/* Banner container */
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--gb-bg);
+  border: 4px solid var(--gb-ink);
+  padding: 16px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin-left: 20px;
+  box-shadow: 4px 4px 0 var(--gb-ink);
+}
+
+
+.banner-text {
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* Right side (avatar) */
+.banner-right {
+  width: 300px;
+  height: 300px;
+  /* background: var(--gb-panel); */
+  /* border: 3px solid var(--gb-ink); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-right img {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated; 
+}
+
+/* Add some spacing for text inside banner-left */
+.banner-left p {
+  margin: 0;
+  padding: 2px 0;
+}
+
+/* HP Bar container */
+.hp-bar {
+  width: 200px;
+  height: 20px;
+  background: var(--gb-panel);
+  border: 2px solid var(--gb-ink);
+  margin-top: 12px;
+  box-shadow: 2px 2px 0 var(--gb-ink);
+  position: relative;
+}
+
+/* HP Fill (left to right) */
+.hp-fill {
+  width: 90%; /* Adjust to show HP level */
+  height: 100%;
+  background: var(--gb-accent);
+  border-right: 2px solid var(--gb-ink);
+}
