@@ -12,6 +12,11 @@ body {
   color: var(--gb-ink);
 }
 
+/* make sizing predictable and prevent elements growing past their containers */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* Page wrapper */
 .homePage {
   padding: 2rem;
@@ -19,14 +24,25 @@ body {
 
 /* Page title */
 .title {
-  font-size: 14px;
+  /* font-size: 14px; */
   margin-bottom: 2rem;
   padding-left: 20px;
-  text-shadow: 1px 1px var(--gb-ink); /* pixel-ish effect */
+  text-shadow: 1px 1px var(--gb-ink); 
+}
+
+.banner{
+  display: flex;
+}
+
+.banner-left {
+  
+  padding: 16px;
+  border-radius: 10px;
+  max-width: 800px;;
 }
 
 /* Banner container */
-.banner {
+.banner-right {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,8 +50,8 @@ body {
   border: 4px solid var(--gb-ink);
   padding: 16px;
   border-radius: 10px;
-  max-width: 400px;
-  margin-left: 20px;
+  max-width: 600px;
+  margin-left: 10px;
   box-shadow: 4px 4px 0 var(--gb-ink);
 }
 
@@ -48,18 +64,10 @@ body {
 /* Right side (avatar) */
 .banner-right {
   width: 300px;
-  height: 300px;
-  /* background: var(--gb-panel); */
-  /* border: 3px solid var(--gb-ink); */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-}
-
-.banner-right img {
-  width: 100%;
-  height: 100%;
-  image-rendering: pixelated; 
+  gap: 10px;
 }
 
 /* Add some spacing for text inside banner-left */
@@ -68,21 +76,60 @@ body {
   padding: 2px 0;
 }
 
-/* HP Bar container */
 .hp-bar {
-  width: 200px;
-  height: 20px;
-  background: var(--gb-panel);
-  border: 2px solid var(--gb-ink);
-  margin-top: 12px;
-  box-shadow: 2px 2px 0 var(--gb-ink);
-  position: relative;
+  width: 250px;
+  height: 30px;
+  border-radius: 6px;
+  background: var(--gb-bg);      /* empty part */
+  border: 4px solid var(--gb-ink);
+  box-sizing: border-box;        /* 🔑 CRITICAL */         
 }
 
-/* HP Fill (left to right) */
+/* HP BAR FILL */
 .hp-fill {
-  width: 90%; /* Adjust to show HP level */
+  width: 95%;                    /* HP amount */
   height: 100%;
   background: var(--gb-accent);
-  border-right: 2px solid var(--gb-ink);
+}
+
+.avatar-container {
+  /* width: 90%;
+  height: 90%; */
+  border-radius: 10px;
+  border: 4px solid var(--gb-ink);
+  background: var(--gb-accent);
+  box-shadow: 1px 1px 0 var(--gb-ink);
+  display: flex;           
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  padding: 10px;
+  overflow: hidden;
+  /* responsive sizing: don't exceed parent and allow it to shrink */
+  max-width: 100%;
+  width: 65%;
+  height: auto;
+}
+
+.top-banner-right {
+  display: flex;
+  /* align-items: center; */
+  gap: 10px;
+  justify-content: center;
+  overflow: hidden;
+  /* allow items to wrap on small screens so nothing overflows the banner */
+  flex-wrap: wrap;
+}
+
+/* ensure avatar image scales inside its container */
+.avatar {
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  display: block;
+}
+
+.stats-section {
+  width: 25%;
+  max-width: 100%;
 }
